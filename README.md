@@ -1,0 +1,13 @@
+Welcome to the XCUI Test automation architecture and design DEMO. 
+
+Quick summary:
+
+1. Chaining Pattern: The current XCUITest framework adopts the method chaining pattern, where each function returns <self>. This design promotes clean, readable, and maintainable test code by allowing fluent API calls while encapsulating complex logic within functions.
+2. Advanced Page Object Model (Screen Object Model): The framework utilizes an advanced Page Object Model (POM), referred to as the Screen Object Model. It includes custom classes to manage UI elements by wrapping XCUIElement instances (see UIObjects -> BaseElements). This abstraction enhances modularity and reusability.
+3. TextField Class: The TextField class exemplifies how wrapped XCUIElement objects are handled. It provides specialized functionality for specific element types, such as type() or hasFocus() methods, which are exclusive to text fields. This approach ensures flexibility and type-specific behavior encapsulation.
+4. BaseScreen Inheritance: All screen classes inherit from a BaseScreen class, which includes a required initializer with essential attributes. This pattern ensures consistency across screen representations and simplifies screen object creation.
+5. Setup Configuration: Following best practices, the setup configuration for UI tests is centralized in the BaseTest class. This promotes reusability and maintainability by isolating test setup logic from test cases.
+6. Custom Assertions and Waits: Custom assertion and wait mechanisms have been implemented to validate element states and attributes (e.g., existence, visibility, or enabled status). These utilities, defined in protocols (e.g., States), use generics to support flexible assertions across different data types, improving test reliability and failure handling.
+7. Element States as Enums: Element states (e.g., .exists, .hittable, .selected, .enabled) are implemented as enums for improved code readability and maintainability. This approach standardizes state management and reduces errors in test scripts.
+8. Interactions Protocol: Common element interactions, such as tap() and swipe(), are encapsulated in an Interactions protocol. This modularizes interaction logic, making it reusable and easier to maintain across different UI elements.
+9. Activity Wrapper: Each function incorporates a generic Activity wrapper to describe executable actions. This wrapper enhances test reporting by providing human-readable descriptions of test steps, especially in case of failures. Moving forward, runActivity will be integrated into every function, keeping test classes clean by avoiding direct activity descriptions.
