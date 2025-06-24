@@ -2,7 +2,7 @@ Welcome to the XCUI Test automation architecture and design DEMO.
 
 Quick summary:
 
-1. Chaining Pattern: The current XCUITest framework adopts the method chaining pattern, where each function returns <self>. This design promotes clean, readable, and maintainable test code by allowing fluent API calls while encapsulating complex logic within functions.
+1. Chaining Pattern: The current XCUITest framework adopts the method chaining pattern, where each function returns self. This design promotes clean, readable, and maintainable test code by allowing fluent API calls while encapsulating complex logic within functions.
 2. Advanced Page Object Model (Screen Object Model): The framework utilizes an advanced Page Object Model (POM), referred to as the Screen Object Model. It includes custom classes to manage UI elements by wrapping XCUIElement instances (see UIObjects -> BaseElements). This abstraction enhances modularity and reusability.
 3. TextField Class: The TextField class exemplifies how wrapped XCUIElement objects are handled. It provides specialized functionality for specific element types, such as type() or hasFocus() methods, which are exclusive to text fields. This approach ensures flexibility and type-specific behavior encapsulation.
 4. BaseScreen Inheritance: All screen classes inherit from a BaseScreen class, which includes a required initializer with essential attributes. This pattern ensures consistency across screen representations and simplifies screen object creation.
